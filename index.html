@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fakt des Tages</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Definiere die Fakten in verschiedenen Sprachen
+            const facts = {
+                "de": "Die Pyramiden von Gizeh sind über 4500 Jahre alt.",
+                "en": "The Pyramids of Giza are over 4500 years old.",
+                "ar": "أهرامات الجيزة عمرها أكثر من 4500 عام.",
+                "fr": "Les pyramides de Gizeh ont plus de 4500 ans."
+            };
+
+            // Erkennen der Sprache des Nutzers
+            let userLang = navigator.language || navigator.userLanguage;
+            userLang = userLang.substring(0, 2); // Nur die ersten zwei Buchstaben nehmen
+
+            // Standard auf Englisch setzen, falls Sprache nicht verfügbar ist
+            const fact = facts[userLang] || facts["en"];
+            
+            // Fakt anzeigen
+            document.getElementById("fact").innerText = fact;
+        });
+    </script>
+</head>
+<body>
+    <h1>Fakt des Tages</h1>
+    <p id="fact">Lädt...</p>
+</body>
+</html>
